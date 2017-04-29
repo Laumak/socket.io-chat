@@ -1,34 +1,19 @@
-<form id="chat-form">
-  <h2 class="title">Send a message</h2>
-  <div class="field">
-    <label class="label" for="message">Username</label>
-    <div class="control">
-      <input type="text" id="username" class="input" required>
-    </div>
-  </div>
-
-  <div class="field">
-    <label class="label" for="message">Message</label>
-    <div class="control">
-      <textarea id="message" rows="5" cols="50" class="textarea" required></textarea>
-    </div>
-  </div>
-
-  <input type="submit" value="Send" class="button is-success">
-</form>
-
-<hr />
-
-<h2 class="title">Messages</h2>
 <div id="chat">
   <table class="table is-striped is-narrow">
-    <thead>
-      <tr>
-        <th class="time">Time</th>
-        <th class="username">User</th>
-        <th class="message-text">Message</th>
-      </tr>
-    </thead>
     <tbody id="chat-body" class="messages"></tbody>
   </table>
 </div>
+
+<form id="chat-form">
+  <div class="field is-grouped">
+    <div class="control username">
+      <input type="text" id="username" class="input" placeholder="Username" required />
+    </div>
+    <div class="control is-expanded">
+      <input type="text" id="message" class="input" placeholder="Type a message" required />
+    </div>
+    <div class="control">
+      <input type="submit" value="Send" class="button is-success" />
+    </div>
+  </div>
+</form>

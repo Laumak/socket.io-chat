@@ -8,27 +8,29 @@ socket.on("message-received", ({ message }) => addMessage(message))
 const form = document.getElementById("chat-form");
 form.addEventListener("submit", e => {
   e.preventDefault();
-  const textarea = document.getElementById("message")
 
-  const username = document.getElementById("username").value
-  const message = textarea.value
+  const usernameEl = document.getElementById("username")
+  const messageEl  = document.getElementById("message")
+
+  const username = usernameEl.value
+  const message  = messageEl.value
 
   socket.emit("send-message", { message, username });
 
-  textarea.value = ""
+  messageEl.value = ""
 })
 
 const addMessage = message => {
   const row = createTableRow(message)
 
-  return chat.insertBefore(row, chat.childNodes[0])
+  return chat.appendChild(row)
 }
 
 const renderMessages = messages => {
   return messages.map(message => {
     const row = createTableRow(message)
 
-    return chat.appendChild(row)
+    return chat.insertBefore(row, chat.childNodes[0])
   })
 }
 
