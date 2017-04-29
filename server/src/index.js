@@ -1,6 +1,6 @@
-import express from "express"
-import io from "socket.io"
-import chalk from "chalk"
+const express = require("express")
+const io = require("socket.io")
+const chalk = require("chalk")
 
 /* eslint-disable no-console */
 

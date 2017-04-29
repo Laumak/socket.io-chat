@@ -8,7 +8,7 @@
   "scripts": {
     "open:src": "nodemon --watch server/src --exec \"babel-node server/src/index.js\"",
     "dev:server": "npm-run-all --parallel open:src lint:watch",
-    "start": "babel-node src",
+    "start": "node server/src/index.js",
     "lint": "esw src --color",
     "lint:watch": "npm run lint -- --watch"
   },
