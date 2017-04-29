@@ -2,16 +2,11 @@ const socket = io(); // eslint-disable-line
 
 const chat = document.getElementById("chat-body");
 
-socket.on("all-messages", ({ messages }) => {
-  renderMessages(messages)
-})
+socket.on("all-messages", ({ messages }) => renderMessages(messages))
+socket.on("message-received", ({ message }) => addMessage(message))
 
-socket.on("message-received", ({ message }) => {
-  addMessage(message)
-})
-
-const button = document.getElementById("button");
-button.addEventListener("click", e => {
+const form = document.getElementById("chat-form");
+form.addEventListener("submit", e => {
   e.preventDefault();
   const textarea = document.getElementById("message")
 
