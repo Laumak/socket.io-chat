@@ -1,17 +1,28 @@
+const path = require("path")
 const express = require("express")
 const io = require("socket.io")
 const chalk = require("chalk")
+const hbs = require("express-handlebars")
 
 /* eslint-disable no-console */
 
-const app    = express()
+const app = express()
+
+app.engine("hbs", hbs({
+  extname: "hbs",
+  defaultLayout: "layout",
+  layoutsDir: __dirname + "/views/layouts/"
+}))
+app.set("views", path.join(__dirname, "views"))
+app.set("view engine", "hbs")
+
 const port   = process.env.PORT || 3000
 let messages = []
 
 app.use(express.static(__dirname + "/public"))
 
 app.get("/", (req, res) => {
-  res.sendFile("/index.html");
+  res.render("chat", { port })
 })
 
 const server = app.listen(port, () => {
@@ -24,7 +35,7 @@ const socketio = io.listen(server)
 socketio.on("connection", socket => {
   console.log(chalk.green(`Client connected`))
 
-  socket.emit("all-messages", { messages });
+  socket.emit("all-messages", { messages })
 
   socket.on("send-message", ({ message, username }) => {
     console.log(`client sent a message "${message}"`)
@@ -36,7 +47,7 @@ socketio.on("connection", socket => {
 
     messages.unshift(newMessage)
 
-    socketio.emit("message-received", { message: newMessage });
+    socketio.emit("message-received", { message: newMessage })
   })
 
   socket.on("disconnect", () => {

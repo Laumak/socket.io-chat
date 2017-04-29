@@ -1,4 +1,5 @@
-const socket = io("http://localhost:3000"); // eslint-disable-line
+const port = document.querySelector('meta[name="port"]').content;
+const socket = io(`http://localhost:${port}`); // eslint-disable-line
 
 const chat = document.getElementById("chat-body");
 
