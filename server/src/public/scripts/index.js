@@ -34,7 +34,7 @@ const renderMessages = messages => {
 
 const createTableRow = ({ time, username, message }) => {
   const row = document.createElement("tr")
-  row.classList.add("message")
+  row.classList.add("chat-message")
 
   const timeCell = document.createElement("td")
   timeCell.classList.add("time")
@@ -47,7 +47,7 @@ const createTableRow = ({ time, username, message }) => {
   row.appendChild(userCell)
 
   const messageCell = document.createElement("td")
-  messageCell.classList.add("message")
+  messageCell.classList.add("message-text")
   messageCell.textContent = message
   row.appendChild(messageCell)
 

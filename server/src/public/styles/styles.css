@@ -1,6 +1,15 @@
-section.container {
-  max-width: 600px;
+html {
+  font-size: 15px;
+}
+
+section.section {
+  max-width: 800px;
   margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.textarea {
+  min-height: 100px;
 }
 
 #chat {
@@ -16,29 +25,17 @@ section.container {
   border-bottom: 1px solid gray;
 }
 
-#chat tr.message {
+#chat tr {
   display: flex;
 }
-td.time, td.username {
-  padding: 2px 0;
-}
-td.time {
+td.time, th.time {
   min-width: 80px;
   text-align: center;
 }
-td.username {
+td.username, th.username {
   min-width: 100px;
   border-right: 1px solid gray;
 }
-td.message {
+td.message-text, th.message-text {
   flex-grow: 1;
-  padding: 2px 3px 2px 10px;
-}
-
-#chat tr:nth-child(odd) {
-  background-color: #f3f3f3;
-}
-
-.input-group label {
-  display: block;
 }
