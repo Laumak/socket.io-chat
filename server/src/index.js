@@ -6,6 +6,8 @@ const hbs = require("express-handlebars")
 
 /* eslint-disable no-console */
 
+process.env.TZ = 'Europe/Helsinki'
+
 const app = express()
 
 app.engine("hbs", hbs({
