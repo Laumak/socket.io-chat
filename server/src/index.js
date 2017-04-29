@@ -22,7 +22,7 @@ let messages = []
 app.use(express.static(__dirname + "/public"))
 
 app.get("/", (req, res) => {
-  res.render("chat", { port })
+  res.render("chat")
 })
 
 const server = app.listen(port, () => {

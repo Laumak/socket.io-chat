@@ -1,5 +1,4 @@
-const port = document.querySelector('meta[name="port"]').content;
-const socket = io(`http://localhost:${port}`); // eslint-disable-line
+const socket = io(); // eslint-disable-line
 
 const chat = document.getElementById("chat-body");
 
@@ -12,7 +11,7 @@ socket.on("message-received", ({ message }) => {
 })
 
 const button = document.getElementById("button");
-button.addEventListener("click", (e) => {
+button.addEventListener("click", e => {
   e.preventDefault();
   const textarea = document.getElementById("message")
 
