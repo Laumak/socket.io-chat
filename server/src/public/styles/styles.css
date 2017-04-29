@@ -1,0 +1,44 @@
+section.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#chat {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#chat table {
+  width: 100%;
+}
+
+#chat tr:not(:last-child) {
+  border-bottom: 1px solid gray;
+}
+
+#chat tr.message {
+  display: flex;
+}
+td.time, td.username {
+  padding: 2px 0;
+}
+td.time {
+  min-width: 80px;
+  text-align: center;
+}
+td.username {
+  min-width: 100px;
+  border-right: 1px solid gray;
+}
+td.message {
+  flex-grow: 1;
+  padding: 2px 3px 2px 10px;
+}
+
+#chat tr:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+.input-group label {
+  display: block;
+}
