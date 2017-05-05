@@ -1,6 +1,8 @@
 # Socket.io chat application
 Express and Socket.io powered chat app
 
+https://mits-chat-app.herokuapp.com/
+
 ### Running the app
 1. Clone the repo
 2. Install packages
